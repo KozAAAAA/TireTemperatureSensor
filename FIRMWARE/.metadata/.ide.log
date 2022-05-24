@@ -2745,3 +2745,4 @@
 2022-05-23 19:34:09,775 [INFO] OpenFileManager:323 - Restore cursor
 2022-05-23 19:42:32,037 [INFO] Gpio:254 - dependency for GPIO [CAN1, I2C2, RCC, SYS]
 2022-05-23 19:46:33,274 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 258067456 Bytes (391118848)
+2022-05-23 23:43:17,123 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
