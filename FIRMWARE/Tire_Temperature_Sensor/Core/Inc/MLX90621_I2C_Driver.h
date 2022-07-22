@@ -24,4 +24,5 @@
     int MLX90621_I2CRead(uint8_t slaveAddr, uint8_t command, uint8_t startAddress, uint8_t addressStep, uint8_t nMemAddressRead, uint16_t *data);
     int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, uint16_t data);
     void MLX90621_I2CFreqSet(int freq);
+
 #endif
