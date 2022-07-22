@@ -1,0 +1,54 @@
+21:57:39 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:20:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/main.cpp: In function 'void SystemClock_Config()':
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
+  133 |   RCC_OscInitTypeDef RCC_OscInitStruct{0};
+      |                                         ^
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:133:41: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
+  134 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11572	     20	   1692	  13284	   33e4	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+
+21:57:39 Build Finished. 0 errors, 18 warnings. (took 734ms)
+
