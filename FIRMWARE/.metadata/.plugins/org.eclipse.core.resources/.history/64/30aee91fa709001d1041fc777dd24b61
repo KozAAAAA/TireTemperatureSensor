@@ -1,0 +1,17 @@
+/*
+ * mlx90621.cpp
+ *
+ *  Created on: Jul 22, 2022
+ *      Author: mateusz
+ */
+
+#include <mlx90621.h>
+
+MLX90621::MLX90621() {
+	// TODO Auto-generated constructor stub
+}
+
+MLX90621::~MLX90621() {
+	// TODO Auto-generated destructor stub
+}
+

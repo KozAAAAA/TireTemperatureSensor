@@ -1,0 +1,2 @@
+../Core/Src/mlx90621.cpp:10:1:MLX90621::MLX90621()	16	static
+../Core/Src/mlx90621.cpp:14:1:MLX90621::~MLX90621()	16	static
