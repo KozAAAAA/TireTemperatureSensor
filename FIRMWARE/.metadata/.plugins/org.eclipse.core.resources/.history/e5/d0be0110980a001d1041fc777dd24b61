@@ -25,7 +25,7 @@ void MLX90621_I2CInit()
 
 int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMemAddressRead, uint8_t *data)
 {
-
+	/*
     uint8_t sa;                           
     int ack = 0;                               
     int cnt = 0;
@@ -37,13 +37,6 @@ int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMe
     sa = (slaveAddr << 1);
     cmd = startAddress;
     
-    if(HAL_I2C_Mem_Read(&hi2c2, sa, cmd, 1, i2cData, nMemAddressRead, 100) != HAL_OK)
-    {
-    	return -1;
-    }
-
-    /*
-
     i2c.stop();
 
     wait_us(5);
@@ -69,14 +62,18 @@ int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMe
     }          
 
     i2c.stop();   
-    */
     
     for(cnt=0; cnt < nMemAddressRead; cnt++)
     {
         *p++ = i2cData[cnt];
     }
-    
+    */
 
+    if(HAL_I2C_Mem_Read(&hi2c2, (slaveAddr << 1), startAddress, 1, data, nMemAddressRead, 100) != HAL_OK)
+    {
+    	return -1;
+    }
+    
     return 0;
 } 
 
@@ -97,10 +94,6 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
     cmd[2] = addressStep;
     cmd[3] = nMemAddressRead;
     
-    HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 4, 100);
-    HAL_I2C_Master_Receive(&hi2c2, sa, i2cData, nMemAddressRead, 100);
-
-    /*
     i2c.stop();
     wait_us(5);
     ack = i2c.write(sa, cmd, 4, 1);
@@ -117,8 +110,7 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
     {
         return -1; 
     }          
-    i2c.stop();
-    */
+    i2c.stop();   
     
     for(cnt=0; cnt < nMemAddressRead; cnt++)
     {
@@ -126,9 +118,6 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
     }
     
-
-
-
     return 0;   
 } 
 
@@ -153,10 +142,6 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     cmd[4] = data >> 8;
     cmd[3] = cmd[4] - checkValue;
 
-    HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 5, 100);
-
-    /*
-
     i2c.stop();
     wait_us(5);    
     ack = i2c.write(sa, cmd, 5, 0);
@@ -167,8 +152,6 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     }         
     i2c.stop();   
     
-    */
-
     MLX90621_I2CRead(slaveAddr, 0x02, 0x8F+command, 0, 1, &dataCheck);
     
     if ( dataCheck != data)
