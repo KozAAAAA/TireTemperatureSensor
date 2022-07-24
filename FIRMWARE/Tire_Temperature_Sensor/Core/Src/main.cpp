@@ -20,7 +20,8 @@
 #include "main.h"
 #include "can.h"
 #include "gpio.h"
-#inclide "MLX90621_I2C_Driver.h"
+#include "i2c.h"
+#include "MLX90621_API.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -97,29 +98,21 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  float data = 0.5;
+  HAL_Delay(5);
+  int status;
+  uint8_t eeData[256];
+
+  status = MLX90621_DumpEE(eeData);
+
+  status = MLX90621_Configure(eeData);
+
+
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_GPIO_WritePin(LED_OK_GPIO_Port, LED_OK_Pin, GPIO_PIN_SET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_OK_GPIO_Port, LED_OK_Pin, GPIO_PIN_RESET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_ERR_GPIO_Port, LED_ERR_Pin, GPIO_PIN_SET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_ERR_GPIO_Port, LED_ERR_Pin, GPIO_PIN_RESET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_WAR1_GPIO_Port, LED_WAR1_Pin, GPIO_PIN_SET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_WAR1_GPIO_Port, LED_WAR1_Pin, GPIO_PIN_RESET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_WAR2_GPIO_Port, LED_WAR2_Pin, GPIO_PIN_SET);
-	  HAL_Delay(250);
-	  HAL_GPIO_WritePin(LED_WAR2_GPIO_Port, LED_WAR2_Pin, GPIO_PIN_RESET);
-	  HAL_Delay(250);
-	  data++;
+
   }
   /* USER CODE END 3 */
 }

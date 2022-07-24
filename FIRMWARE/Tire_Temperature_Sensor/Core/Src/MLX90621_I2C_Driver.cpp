@@ -29,8 +29,8 @@ int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMe
     uint8_t sa;                           
     int ack = 0;                               
     int cnt = 0;
-    char cmd = 0;
-    char i2cData[256] = {0};
+    uint8_t cmd = 0;
+    uint8_t i2cData[256] = {0};
     uint8_t *p;
     
     p = data;
@@ -86,8 +86,8 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
     int ack = 0;                               
     int cnt = 0;
     int i = 0;
-    char cmd[4] = {0,0,0,0};
-    char i2cData[132] = {0};
+    uint8_t cmd[4] = {0,0,0,0};
+    uint8_t i2cData[132] = {0};
     uint16_t *p;
     
     p = data;
@@ -97,8 +97,15 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
     cmd[2] = addressStep;
     cmd[3] = nMemAddressRead;
     
-    HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 4, 100);
-    HAL_I2C_Master_Receive(&hi2c2, sa, i2cData, nMemAddressRead, 100);
+    if(HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 4, 100) != HAL_OK)
+    {
+        return -1;
+    }
+
+    if(HAL_I2C_Master_Receive(&hi2c2, sa, i2cData, 2*nMemAddressRead, 100) != HAL_OK)
+    {
+        return -1;
+    }
 
     /*
     i2c.stop();
@@ -142,7 +149,7 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
 {
     uint8_t sa;
     int ack = 0;
-    char cmd[5] = {0,0,0,0,0};
+    uint8_t cmd[5] = {0,0,0,0,0};
     static uint16_t dataCheck;
     
 
@@ -153,7 +160,10 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     cmd[4] = data >> 8;
     cmd[3] = cmd[4] - checkValue;
 
-    HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 5, 100);
+    if(HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 5, 100) != HAL_OK)
+    {
+        return -1;
+    }
 
     /*
 
@@ -169,7 +179,7 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     
     */
 
-    MLX90621_I2CRead(slaveAddr, 0x02, 0x8F+command, 0, 1, &dataCheck);
+    	MLX90621_I2CRead(slaveAddr, 0x02, 0x8F+command, 0, 1, &dataCheck);
     
     if ( dataCheck != data)
     {
