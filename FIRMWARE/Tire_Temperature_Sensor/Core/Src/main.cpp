@@ -104,21 +104,28 @@ int main(void)
   HAL_Delay(500);
 
   int status;
+  float Ta;
+  int resolution;
+  int refresh;
   static uint8_t eeMLX90621[256];
+  static uint16_t mlx90621Frame[66];
+  paramsMLX90621 mlx90621;
+
   status = MLX90621_DumpEE(eeMLX90621);
   status = MLX90621_Configure(eeMLX90621);
 
-
-  int resolution;
-  int refresh;
   resolution = MLX90621_GetCurResolution();
   refresh = MLX90621_GetRefreshRate();
+
+  status = MLX90621_ExtractParameters(eeMLX90621, &mlx90621);
 
 
   while (1)
   {
     /* USER CODE END WHILE */
+	  status = MLX90621_GetFrameData(mlx90621Frame);
 
+	  Ta = MLX90621_GetTa(mlx90621Frame, &mlx90621);
     /* USER CODE BEGIN 3 */
 
   }

@@ -1,10 +1,10 @@
-17:50:24 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+18:35:38 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
 make -j12 all 
 arm-none-eabi-size   Tire_Temperature_Sensor.elf 
    text	   data	    bss	    dec	    hex	filename
-  15472	     20	   1956	  17448	   4428	Tire_Temperature_Sensor.elf
+  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
 Finished building: default.size.stdout
  
 
-17:50:25 Build Finished. 0 errors, 0 warnings. (took 279ms)
+18:35:38 Build Finished. 0 errors, 0 warnings. (took 230ms)
 
