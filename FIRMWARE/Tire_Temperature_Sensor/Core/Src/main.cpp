@@ -110,6 +110,13 @@ int main(void)
   static uint8_t eeMLX90621[256];
   static uint16_t mlx90621Frame[66];
   paramsMLX90621 mlx90621;
+  float emissivity = 0.95;
+  float tr = 28;
+  static float mlx90621To[64];
+
+
+
+
 
   status = MLX90621_DumpEE(eeMLX90621);
   status = MLX90621_Configure(eeMLX90621);
@@ -123,9 +130,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
 	  status = MLX90621_GetFrameData(mlx90621Frame);
 
 	  Ta = MLX90621_GetTa(mlx90621Frame, &mlx90621);
+
+	  MLX90621_CalculateTo(mlx90621Frame, &mlx90621, emissivity, tr, mlx90621To);
     /* USER CODE BEGIN 3 */
 
   }

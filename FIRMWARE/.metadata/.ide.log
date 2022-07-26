@@ -7229,3 +7229,9 @@
 2022-07-26 16:03:44,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 26, 2022 4:03:44 PM org.glassfish.grizzly.http.server.HttpServer start
 2022-07-26 16:03:44,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
 2022-07-26 16:03:44,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-07-26 18:39:27,150 [ERROR] ConfigurationRetriever:139 - IOException on connection: sw-center.st.com
+2022-07-26 18:39:27,150 [ERROR] ConfigurationRetriever:139 - IOException on connection: sw-center.st.com
+2022-07-26 18:39:27,151 [ERROR] ConfigurationRetriever:139 - IOException on connection: sw-center.st.com
+2022-07-26 18:39:27,375 [ERROR] ConfigurationRetriever:139 - IOException on connection: sw-center.st.com
+2022-07-26 18:39:27,375 [ERROR] ConfigurationRetriever:139 - IOException on connection: sw-center.st.com
+2022-07-26 18:39:27,376 [ERROR] ConfigurationRetriever:139 - IOException on connection: sw-center.st.com
