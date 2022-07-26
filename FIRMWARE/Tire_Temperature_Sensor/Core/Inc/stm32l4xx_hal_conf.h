@@ -339,7 +339,7 @@
 #endif /* HAL_HCD_MODULE_ENABLED */
 
 #ifdef HAL_I2C_MODULE_ENABLED
-  #include "stm32l4xx_hal_i2c.h"
+  #include <stm32l4xx_hal_i2c.txt>
 #endif /* HAL_I2C_MODULE_ENABLED */
 
 #ifdef HAL_IRDA_MODULE_ENABLED

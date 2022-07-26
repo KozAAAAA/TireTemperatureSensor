@@ -16,7 +16,6 @@
  */
 #include "i2c.h"
 #include "MLX90621_I2C_Driver.h"
-#include "i2c_mod.h"
 
 
 void MLX90621_I2CInit()
@@ -100,7 +99,11 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
     cmd[3] = nMemAddressRead;
     
 
-    Custom_HAL_I2C_Mem_Read(&hi2c2, sa, command, startAddress, addressStep, nMemAddressRead, i2cData, 2*nMemAddressRead, 100);
+    if(Custom_HAL_I2C_Mem_Read(&hi2c2, sa, command, startAddress, addressStep, nMemAddressRead, i2cData, 2*nMemAddressRead, 100) != HAL_OK)
+    {
+    	return -1;
+    }
+
 
 //    if(HAL_I2C_Mem_Read_MltCmd(&hi2c, sa, cmd, 4, i2cData, 2*nMemAddressRead, 100) != HAL_OK)
 //    {

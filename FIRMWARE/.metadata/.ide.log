@@ -7212,3 +7212,20 @@
 2022-07-25 14:14:10,576 [INFO] ProjectBuilder:4183 - Time for Generating toolchain IDE Files: 1519mS.
 2022-07-25 14:14:10,576 [INFO] ProjectBuilder:2785 - Time for Copy CMSIS : 0mS.
 2022-07-25 14:14:10,577 [INFO] ProjectBuilder:2785 - Time for Copy CMSIS : 0mS.
+2022-07-26 16:03:13,104 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Exception in thread "SWV client thread" java.lang.NullPointerException
+2022-07-26 16:03:13,105 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVPlugin.debugTrace(SWVPlugin.java:86)
+2022-07-26 16:03:13,105 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.TRACE(SWVClient.java:763)
+2022-07-26 16:03:13,106 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.readByte(SWVClient.java:295)
+2022-07-26 16:03:13,106 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.getNextByte(SWVClient.java:278)
+2022-07-26 16:03:13,106 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.run(SWVClient.java:312)
+2022-07-26 16:03:13,771 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-07-26 16:03:39,889 [INFO] Activator:177 - 
+
+
+2022-07-26 16:03:39,890 [INFO] Activator:178 - !SESSION log4j initialized
+2022-07-26 16:03:44,426 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 26, 2022 4:03:44 PM org.glassfish.grizzly.http.server.NetworkListener start
+2022-07-26 16:03:44,429 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: Started listener bound to [localhost:1598]
+2022-07-26 16:03:44,429 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-07-26 16:03:44,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 26, 2022 4:03:44 PM org.glassfish.grizzly.http.server.HttpServer start
+2022-07-26 16:03:44,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
+2022-07-26 16:03:44,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 

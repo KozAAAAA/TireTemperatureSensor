@@ -1,2 +1,5 @@
 1658839884703	Rename resource 'hal_i2c_mod.c'
 1658840807422	Rename resource 'i2c_mod.c'
+1658843977255	Rename resource 'stm32l4xx_hal_i2c.c'
+1658844007731	Rename resource 'stm32l4xx_hal_i2c.h'
+1658844037942	Rename resource 'stm32l4xx_hal_i2c2.h'

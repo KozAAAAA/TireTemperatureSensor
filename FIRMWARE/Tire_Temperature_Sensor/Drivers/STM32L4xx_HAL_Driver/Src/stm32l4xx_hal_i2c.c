@@ -66,7 +66,7 @@
       (+) Transmit in slave mode an amount of data in blocking mode using HAL_I2C_Slave_Transmit()
       (+) Receive in slave mode an amount of data in blocking mode using HAL_I2C_Slave_Receive()
 
-    *** Polling mode IO MEM operation ***
+    *** Polling mode IO MEM operation ***HAL_StatusTypeDef
     =====================================
     [..]
       (+) Write an amount of data in blocking mode to a specific memory address using HAL_I2C_Mem_Write()
@@ -434,6 +434,10 @@ static HAL_StatusTypeDef I2C_RequestMemoryWrite(I2C_HandleTypeDef *hi2c, uint16_
 static HAL_StatusTypeDef I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
                                                uint16_t MemAddress, uint16_t MemAddSize, uint32_t Timeout,
                                                uint32_t Tickstart);
+static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
+                                               	   	  uint8_t command, uint8_t startAddress, uint8_t addressStep, uint8_t nMemAddressRead,
+													  uint32_t Timeout, uint32_t Tickstart);
+
 
 /* Private functions for I2C transfer IRQ handler */
 static HAL_StatusTypeDef I2C_Master_ISR_IT(struct __I2C_HandleTypeDef *hi2c, uint32_t ITFlags,

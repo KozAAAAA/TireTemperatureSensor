@@ -112,7 +112,6 @@ int main(void)
   status = MLX90621_Configure(eeData);
 
 
-
   while (1)
   {
     /* USER CODE END WHILE */
