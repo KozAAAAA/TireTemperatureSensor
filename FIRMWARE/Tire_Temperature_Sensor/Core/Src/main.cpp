@@ -104,12 +104,15 @@ int main(void)
   HAL_Delay(500);
 
   int status;
+  static uint8_t eeMLX90621[256];
+  status = MLX90621_DumpEE(eeMLX90621);
+  status = MLX90621_Configure(eeMLX90621);
 
-  static uint8_t eeData[256];
 
-  status = MLX90621_DumpEE(eeData);
-
-  status = MLX90621_Configure(eeData);
+  int resolution;
+  int refresh;
+  resolution = MLX90621_GetCurResolution();
+  refresh = MLX90621_GetRefreshRate();
 
 
   while (1)

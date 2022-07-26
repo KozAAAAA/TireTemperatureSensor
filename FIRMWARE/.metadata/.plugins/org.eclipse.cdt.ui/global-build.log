@@ -86,3 +86,706 @@ arm-none-eabi-size   Tire_Temperature_Sensor.elf
   15372	     20	   1956	  17348	   43c4	Tire_Temperature_Sensor.elf
 Finished building: default.size.stdout
  
+16:52:58 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:20:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  106 |   int status;
+      |       ^~~~~~
+../Core/Src/main.cpp:114:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
+  114 |   int resolution;
+      |       ^~~~~~~~~~
+../Core/Src/main.cpp: In function 'void SystemClock_Config()':
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
+  135 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:136:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
+  136 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:136:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:136:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:136:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15472	     20	   1956	  17448	   4428	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+16:53:17 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15472	     20	   1956	  17448	   4428	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+16:55:49 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:20:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  106 |   int status;
+      |       ^~~~~~
+../Core/Src/main.cpp:114:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
+  114 |   int resolution;
+      |       ^~~~~~~~~~
+../Core/Src/main.cpp:115:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
+  115 |   int refresh;
+      |       ^~~~~~~
+../Core/Src/main.cpp: In function 'void SystemClock_Config()':
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
+  137 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:137:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:138:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
+  138 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:138:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:138:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:138:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15520	     20	   1956	  17496	   4458	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:00:23 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:20:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CReadEEPROM(uint8_t, uint8_t, uint16_t, uint8_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:31:9: warning: unused variable 'ack' [-Wunused-variable]
+   31 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:35:14: warning: unused variable 'p' [-Wunused-variable]
+   35 |     uint8_t *p;
+      |              ^
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:116:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  116 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:58:9: warning: unused variable 'ack' [-Wunused-variable]
+   58 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:61:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   61 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:125:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  125 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:141:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  141 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:143:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  143 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:134:9: warning: unused variable 'ack' [-Wunused-variable]
+  134 |     int ack = 0;
+      |         ^~~
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  106 |   int status;
+      |       ^~~~~~
+../Core/Src/main.cpp:112:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
+  112 |   int resolution;
+      |       ^~~~~~~~~~
+../Core/Src/main.cpp:113:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
+  113 |   int refresh;
+      |       ^~~~~~~
+../Core/Src/main.cpp: In function 'void SystemClock_Config()':
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
+  134 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:134:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
+  135 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+      |                                            ^
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:135:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15516	     20	   1956	  17492	   4454	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:02:27 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CReadEEPROM(uint8_t, uint8_t, uint16_t, uint8_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:45:9: warning: statement has no effect [-Wunused-value]
+   45 |     for(cnt; cnt < nMemAddressRead; cnt++)
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:34:14: warning: unused variable 'p' [-Wunused-variable]
+   34 |     uint8_t *p;
+      |              ^
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:115:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  115 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:57:9: warning: unused variable 'ack' [-Wunused-variable]
+   57 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:60:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   60 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:124:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  124 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:140:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  140 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:142:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  142 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:133:9: warning: unused variable 'ack' [-Wunused-variable]
+  133 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15504	     20	   1956	  17480	   4448	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:02:52 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15504	     20	   1956	  17480	   4448	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+17:03:27 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CReadEEPROM(uint8_t, uint8_t, uint16_t, uint8_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:45:9: warning: statement has no effect [-Wunused-value]
+   45 |     for(cnt; cnt < nMemAddressRead; cnt++)
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:34:14: warning: unused variable 'p' [-Wunused-variable]
+   34 |     uint8_t *p;
+      |              ^
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:115:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  115 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:57:9: warning: unused variable 'ack' [-Wunused-variable]
+   57 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:60:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   60 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:124:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  124 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:140:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  140 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:142:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  142 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:133:9: warning: unused variable 'ack' [-Wunused-variable]
+  133 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15504	     20	   1956	  17480	   4448	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:05:11 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CReadEEPROM(uint8_t, uint8_t, uint16_t, uint8_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:27:104: warning: unused parameter 'data' [-Wunused-parameter]
+   27 | int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMemAddressRead, uint8_t *data)
+      |                                                                                               ~~~~~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:79:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+   79 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:59:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   59 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:88:30: warning: unused parameter 'freq' [-Wunused-parameter]
+   88 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:104:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  104 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:106:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  106 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:97:9: warning: unused variable 'ack' [-Wunused-variable]
+   97 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15496	     20	   1956	  17472	   4440	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:05:47 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CReadEEPROM(uint8_t, uint8_t, uint16_t, uint8_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:27:104: warning: unused parameter 'data' [-Wunused-parameter]
+   27 | int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMemAddressRead, uint8_t *data)
+      |                                                                                               ~~~~~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:115:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  115 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:57:9: warning: unused variable 'ack' [-Wunused-variable]
+   57 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:60:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   60 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:124:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  124 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:140:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  140 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:142:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  142 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:133:9: warning: unused variable 'ack' [-Wunused-variable]
+  133 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15500	     20	   1956	  17476	   4444	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:06:27 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CReadEEPROM(uint8_t, uint8_t, uint16_t, uint8_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:31:9: warning: unused variable 'ack' [-Wunused-variable]
+   31 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:35:14: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+   35 |     uint8_t *p;
+      |              ^
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:116:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  116 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:58:9: warning: unused variable 'ack' [-Wunused-variable]
+   58 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:61:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   61 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:125:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  125 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:141:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  141 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:143:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  143 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:134:9: warning: unused variable 'ack' [-Wunused-variable]
+  134 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15532	     20	   1956	  17508	   4464	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:07:15 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:115:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  115 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:57:9: warning: unused variable 'ack' [-Wunused-variable]
+   57 |     int ack = 0;
+      |         ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp:60:13: warning: variable 'cmd' set but not used [-Wunused-but-set-variable]
+   60 |     uint8_t cmd[4] = {0,0,0,0};
+      |             ^~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:124:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  124 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:140:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  140 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:142:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  142 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:133:9: warning: unused variable 'ack' [-Wunused-variable]
+  133 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15512	     20	   1956	  17488	   4450	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:08:54 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:109:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  109 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:118:30: warning: unused parameter 'freq' [-Wunused-parameter]
+  118 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:134:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  134 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:136:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  136 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:127:9: warning: unused variable 'ack' [-Wunused-variable]
+  127 |     int ack = 0;
+      |         ^~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15476	     20	   1956	  17452	   442c	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
+17:12:37 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_I2C_Driver.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_I2C_Driver.d" -MT"Core/Src/MLX90621_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_I2C_Driver.o"
+In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
+                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/MLX90621_I2C_Driver.cpp:17:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'void MLX90621_I2CFreqSet(int)':
+../Core/Src/MLX90621_I2C_Driver.cpp:27:30: warning: unused parameter 'freq' [-Wunused-parameter]
+   27 | void MLX90621_I2CFreqSet(int freq)
+      |                          ~~~~^~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CRead(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t*)':
+../Core/Src/MLX90621_I2C_Driver.cpp:79:43: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+   79 |         *p++ = (uint16_t)i2cData[i+1]*256 + (uint16_t)i2cData[i];
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp: In function 'int MLX90621_I2CWrite(uint8_t, uint8_t, uint8_t, uint16_t)':
+../Core/Src/MLX90621_I2C_Driver.cpp:94:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+   94 |     cmd[2] = data & 0x00FF;
+      |              ~~~~~^~~~~~~~
+../Core/Src/MLX90621_I2C_Driver.cpp:96:19: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+   96 |     cmd[4] = data >> 8;
+      |              ~~~~~^~~~
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  15472	     20	   1956	  17448	   4428	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
