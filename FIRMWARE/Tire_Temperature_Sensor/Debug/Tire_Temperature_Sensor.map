@@ -4165,7 +4165,7 @@ LOAD /home/mateusz/st/stm32cubeide_1.9.0/plugins/com.st.stm32cube.ide.mcu.extern
  .debug_macro   0x000000000002de12      0x20b ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
  .debug_macro   0x000000000002e01d      0x1ff ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
 
-.debug_line     0x0000000000000000     0xfa33
+.debug_line     0x0000000000000000     0xfa27
  .debug_line    0x0000000000000000     0x1543 ./Core/Src/MLX90621_API.o
  .debug_line    0x0000000000001543      0x82c ./Core/Src/MLX90621_I2C_Driver.o
  .debug_line    0x0000000000001d6f      0x726 ./Core/Src/can.o
@@ -4180,11 +4180,11 @@ LOAD /home/mateusz/st/stm32cubeide_1.9.0/plugins/com.st.stm32cube.ide.mcu.extern
  .debug_line    0x0000000000005aef     0x1104 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.o
  .debug_line    0x0000000000006bf3      0xc4f ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
  .debug_line    0x0000000000007842      0xb04 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
- .debug_line    0x0000000000008346     0x37a7 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o
- .debug_line    0x000000000000baed      0x8d6 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.o
- .debug_line    0x000000000000c3c3      0xd49 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
- .debug_line    0x000000000000d10c     0x1064 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
- .debug_line    0x000000000000e170     0x18c3 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
+ .debug_line    0x0000000000008346     0x379b ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o
+ .debug_line    0x000000000000bae1      0x8d6 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.o
+ .debug_line    0x000000000000c3b7      0xd49 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
+ .debug_line    0x000000000000d100     0x1064 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
+ .debug_line    0x000000000000e164     0x18c3 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
 
 .debug_str      0x0000000000000000   0x10b7ca
  .debug_str     0x0000000000000000     0xdf82 ./Core/Src/MLX90621_API.o

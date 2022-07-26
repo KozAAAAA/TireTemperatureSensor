@@ -50,7 +50,7 @@
 
     (#) Configure the Communication Clock Timing, Own Address1, Master Addressing mode, Dual Addressing mode,
         Own Address2, Own Address2 Mask, General call and Nostretch mode in the hi2c Init structure.
-I2C_MEM_ADD_LSB(
+
     (#) Initialize the I2C registers by calling the HAL_I2C_Init(), configures also the low level Hardware
         (GPIO, CLOCK, NVIC...etc) by calling the customized HAL_I2C_MspInit(&hi2c) API.
 
@@ -7360,28 +7360,28 @@ static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, u
   }
 
 // "mem_write"
-  hi2c->Instance->TXDR = command;
+  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(command);
 
 
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_ERROR;
   }
-  hi2c->Instance->TXDR = startAddress;
+  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(startAddress);
 
 
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_ERROR;
   }
-  hi2c->Instance->TXDR = addressStep;
+  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(addressStep);
 
 
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_ERROR;
   }
-  hi2c->Instance->TXDR = nMemAddressRead;
+  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(nMemAddressRead);
 //
 
   /* Wait until [Transfer Complete] flag is set */

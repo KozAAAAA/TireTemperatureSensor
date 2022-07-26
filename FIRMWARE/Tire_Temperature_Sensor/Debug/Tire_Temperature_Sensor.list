@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  0002e21c  00000000  00000000  000326a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000fa33  00000000  00000000  000608bc  2**0
+ 17 .debug_line   0000fa27  00000000  00000000  000608bc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0010b7ca  00000000  00000000  000702ef  2**0
+ 18 .debug_str    0010b7ca  00000000  00000000  000702e3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  0017bab9  2**0
+ 19 .comment      00000050  00000000  00000000  0017baad  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000031b4  00000000  00000000  0017bb0c  2**2
+ 20 .debug_frame  000031b4  00000000  00000000  0017bb00  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -411,7 +411,6 @@ int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMe
  800040e:	f8c7 3114 	str.w	r3, [r7, #276]	; 0x114
  8000412:	e7e1      	b.n	80003d8 <_Z22MLX90621_I2CReadEEPROMhhtPh+0xd0>
     }
-    
 
     return 0;
  8000414:	2300      	movs	r3, #0
@@ -5438,7 +5437,7 @@ static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, u
   }
 
 // "mem_write"
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(command);
+  hi2c->Instance->TXDR = command;
  8001fd6:	687b      	ldr	r3, [r7, #4]
  8001fd8:	681b      	ldr	r3, [r3, #0]
  8001fda:	787a      	ldrb	r2, [r7, #1]
@@ -5458,7 +5457,7 @@ static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, u
  8001fee:	2301      	movs	r3, #1
  8001ff0:	e02d      	b.n	800204e <Custom_I2C_RequestMemoryRead+0xb6>
   }
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(startAddress);
+  hi2c->Instance->TXDR = startAddress;
  8001ff2:	687b      	ldr	r3, [r7, #4]
  8001ff4:	681b      	ldr	r3, [r3, #0]
  8001ff6:	783a      	ldrb	r2, [r7, #0]
@@ -5478,7 +5477,7 @@ static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, u
  800200a:	2301      	movs	r3, #1
  800200c:	e01f      	b.n	800204e <Custom_I2C_RequestMemoryRead+0xb6>
   }
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(addressStep);
+  hi2c->Instance->TXDR = addressStep;
  800200e:	687b      	ldr	r3, [r7, #4]
  8002010:	681b      	ldr	r3, [r3, #0]
  8002012:	7c3a      	ldrb	r2, [r7, #16]
@@ -5498,7 +5497,7 @@ static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, u
  8002026:	2301      	movs	r3, #1
  8002028:	e011      	b.n	800204e <Custom_I2C_RequestMemoryRead+0xb6>
   }
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(nMemAddressRead);
+  hi2c->Instance->TXDR = nMemAddressRead;
  800202a:	687b      	ldr	r3, [r7, #4]
  800202c:	681b      	ldr	r3, [r3, #0]
  800202e:	7d3a      	ldrb	r2, [r7, #20]

@@ -7360,28 +7360,28 @@ static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, u
   }
 
 // "mem_write"
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(command);
+  hi2c->Instance->TXDR = command;
 
 
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_ERROR;
   }
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(startAddress);
+  hi2c->Instance->TXDR = startAddress;
 
 
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_ERROR;
   }
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(addressStep);
+  hi2c->Instance->TXDR = addressStep;
 
 
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_ERROR;
   }
-  hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(nMemAddressRead);
+  hi2c->Instance->TXDR = nMemAddressRead;
 //
 
   /* Wait until [Transfer Complete] flag is set */

@@ -51,6 +51,7 @@ int MLX90621_I2CReadEEPROM(uint8_t slaveAddr, uint8_t startAddress, uint16_t nMe
     {
         *p++ = i2cData[cnt];
     }
+    
 
     return 0;
 } 
