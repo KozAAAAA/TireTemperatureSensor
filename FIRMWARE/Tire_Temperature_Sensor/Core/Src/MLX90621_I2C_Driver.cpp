@@ -16,6 +16,8 @@
  */
 #include "i2c.h"
 #include "MLX90621_I2C_Driver.h"
+#include "i2c_mod.h"
+
 
 void MLX90621_I2CInit()
 {
@@ -97,15 +99,22 @@ int MLX90621_I2CRead(uint8_t slaveAddr,uint8_t command, uint8_t startAddress, ui
     cmd[2] = addressStep;
     cmd[3] = nMemAddressRead;
     
-    if(HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 4, 100) != HAL_OK)
-    {
-        return -1;
-    }
 
-    if(HAL_I2C_Master_Receive(&hi2c2, sa, i2cData, 2*nMemAddressRead, 100) != HAL_OK)
-    {
-        return -1;
-    }
+    Custom_HAL_I2C_Mem_Read(&hi2c2, sa, command, startAddress, addressStep, nMemAddressRead, i2cData, 2*nMemAddressRead, 100);
+
+//    if(HAL_I2C_Mem_Read_MltCmd(&hi2c, sa, cmd, 4, i2cData, 2*nMemAddressRead, 100) != HAL_OK)
+//    {
+//    	return -1;
+//    }
+//
+//    if(HAL_I2C_Master_Transmit(&hi2c2, sa, cmd, 4, 100) != HAL_OK)
+//    {
+//        return -1;
+//    }
+//    if(HAL_I2C_Master_Receive(&hi2c2, sa, i2cData, 2*nMemAddressRead, 100) != HAL_OK)
+//    {
+//        return -1;
+//    }
 
     /*
     i2c.stop();
@@ -179,7 +188,7 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     
     */
 
-    	MLX90621_I2CRead(slaveAddr, 0x02, 0x8F+command, 0, 1, &dataCheck);
+    MLX90621_I2CRead(slaveAddr, 0x02, 0x8F+command, 0, 1, &dataCheck);
     
     if ( dataCheck != data)
     {
@@ -188,4 +197,7 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     
     return 0;
 }
+
+
+
 

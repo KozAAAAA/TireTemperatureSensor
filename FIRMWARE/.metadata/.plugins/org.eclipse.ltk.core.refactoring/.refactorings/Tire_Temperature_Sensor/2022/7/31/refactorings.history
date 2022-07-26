@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Tire_Temperature_Sensor/Core/Src/hal_i2c_mod.c&apos; to &apos;i2c_mod.c&apos;" description="Rename resource &apos;hal_i2c_mod.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/hal_i2c_mod.c" name="i2c_mod.c" stamp="1658839884703" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Tire_Temperature_Sensor/Core/Src/i2c_mod.c&apos; to &apos;i2c_mod.txt&apos;" description="Rename resource &apos;i2c_mod.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/i2c_mod.c" name="i2c_mod.txt" stamp="1658840807422" updateReferences="true"/>
+</session>

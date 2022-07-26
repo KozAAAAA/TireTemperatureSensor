@@ -1,0 +1,30 @@
+/*
+ * i2c_mod.h
+ *
+ *  Created on: Jul 26, 2022
+ *      Author: mateusz
+ */
+
+#include "stm32l4xx_hal_i2c.h"
+
+#ifndef INC_I2C_MOD_H_
+#define INC_I2C_MOD_H_
+
+
+HAL_StatusTypeDef Custom_HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
+
+										  uint8_t command, uint8_t startAddress, uint8_t addressStep, uint8_t nMemAddressRead,
+
+										  uint8_t *pData, uint16_t Size, uint32_t Timeout);
+
+
+
+
+static HAL_StatusTypeDef Custom_I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
+																												//num_of_2Bytes_reads_from_mem
+                                               uint8_t command, uint8_t startAddress, uint8_t addressStep, uint8_t nMemAddressRead,
+
+											   uint32_t Timeout, uint32_t Tickstart);
+
+
+#endif /* INC_I2C_MOD_H_ */

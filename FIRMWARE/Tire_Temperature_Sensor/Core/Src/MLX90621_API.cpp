@@ -59,7 +59,6 @@ int MLX90621_Configure(uint8_t *eeData)
     error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
     
     return error;      
-    
 }   
 
 int MLX90621_GetOscillatorTrim(uint16_t *oscTrim)

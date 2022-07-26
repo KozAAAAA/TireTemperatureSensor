@@ -1,0 +1,15 @@
+/*
+ * i2c_mod.h
+ *
+ *  Created on: Jul 26, 2022
+ *      Author: mateusz
+ */
+
+#ifndef INC_I2C_MOD_H_
+#define INC_I2C_MOD_H_
+
+
+
+
+
+#endif /* INC_I2C_MOD_H_ */

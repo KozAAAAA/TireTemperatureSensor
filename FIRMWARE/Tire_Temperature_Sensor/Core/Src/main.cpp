@@ -47,7 +47,6 @@
 
 /* USER CODE BEGIN PV */
 
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,12 +57,16 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+
+
 /* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
+
+
 
 int main(void)
 {
@@ -98,13 +101,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  HAL_Delay(5);
+  HAL_Delay(500);
+
   int status;
-  uint8_t eeData[256];
+
+  static uint8_t eeData[256];
 
   status = MLX90621_DumpEE(eeData);
 
   status = MLX90621_Configure(eeData);
+
 
 
   while (1)
@@ -203,3 +209,5 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
+
