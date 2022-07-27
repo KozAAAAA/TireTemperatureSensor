@@ -3400,10 +3400,10 @@ int main(void)
  8001e1a:	f7ff f92b 	bl	8001074 <_Z14MLX90621_GetTaPtPK14paramsMLX90621>
  8001e1e:	ed87 0ace 	vstr	s0, [r7, #824]	; 0x338
 
-	  MLX90621_CalculateTo(mlx90621Frame, &mlx90621, emissivity, tr, mlx90621To);
+	  MLX90621_CalculateTo(mlx90621Frame, &mlx90621, emissivity, Ta, mlx90621To);
  8001e22:	463b      	mov	r3, r7
  8001e24:	4a08      	ldr	r2, [pc, #32]	; (8001e48 <main+0xa0>)
- 8001e26:	edd7 0ad2 	vldr	s1, [r7, #840]	; 0x348
+ 8001e26:	edd7 0ace 	vldr	s1, [r7, #824]	; 0x338
  8001e2a:	ed97 0ad3 	vldr	s0, [r7, #844]	; 0x34c
  8001e2e:	4619      	mov	r1, r3
  8001e30:	4804      	ldr	r0, [pc, #16]	; (8001e44 <main+0x9c>)

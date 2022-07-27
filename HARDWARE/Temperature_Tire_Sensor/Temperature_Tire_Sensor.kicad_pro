@@ -384,8 +384,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "Temperature_Tire_Sensor.step",
+      "vrml": "Temperature_Tire_Sensor.wrl"
     },
     "page_layout_descr_file": ""
   },
