@@ -48,7 +48,10 @@ typedef struct
     void MLX90621_CalculateTo(uint16_t *frameData, const paramsMLX90621 *params, float emissivity, float tr, float *result);
     int MLX90621_SetResolution(uint8_t resolution);
     int MLX90621_GetCurResolution();
-    int MLX90621_SetRefreshRate(uint8_t refreshRate);   
-    int MLX90621_GetRefreshRate();  
+    int MLX90621_SetRefreshRate(uint8_t refreshRate);
+    int MLX90621_GetRefreshRate();
+
+    int MLX90621_AverageTo(const float *toData, uint8_t *result);
+
  
 #endif

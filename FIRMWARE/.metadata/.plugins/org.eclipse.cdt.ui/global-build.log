@@ -1,80 +1,90 @@
-17:50:19 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+12:50:33 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
 make -j12 all 
-arm-none-eabi-gcc "../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.d" -MT"Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o"
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  15472	     20	   1956	  17448	   4428	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-17:50:24 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  15472	     20	   1956	  17448	   4428	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-18:31:32 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:111:3: error: 'staic' was not declared in this scope; did you mean 'static'?
-  111 |   staic int mlx90621Frame[66];
-      |   ^~~~~
-      |   static
-../Core/Src/main.cpp:120:39: error: 'eeData' was not declared in this scope
-  120 |   status = MLX90621_ExtractParameters(eeData, mlx90621);
-      |                                       ^~~~~~
-../Core/Src/main.cpp:122:34: error: 'mlx90621Frame' was not declared in this scope; did you mean 'mlx90621'?
-  122 |   status = MLX90621_GetFrameData(mlx90621Frame);
-      |                                  ^~~~~~~~~~~~~
-      |                                  mlx90621
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  145 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  146 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-make: *** [Core/Src/subdir.mk:55: Core/Src/main.o] Error 1
+arm-none-eabi-g++ "../Core/Src/MLX90621_API.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_API.d" -MT"Core/Src/MLX90621_API.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_API.o"
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_Configure(uint8_t*)':
+../Core/Src/MLX90621_API.cpp:57:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+   57 |     value = 256*eeData[246] + eeData[245];
+      |             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_SetResolution(uint8_t)':
+../Core/Src/MLX90621_API.cpp:113:53: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  113 |         error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
+      |                                                     ^~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_SetRefreshRate(uint8_t)':
+../Core/Src/MLX90621_API.cpp:152:53: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  152 |         error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
+      |                                                     ^~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractPTATParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:321:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  321 |     data = (eeData[219]<<8) + eeData[218];
+      |            ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:324:28: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  324 |     kt1 = (eeData[221]<<8) + eeData[220];
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:332:28: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  332 |     kt2 = (eeData[223]<<8) + eeData[222];
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractKsTaParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:361:31: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  361 |     KsTa = (eeData[231] << 8) + eeData[230];
+      |            ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractAlphaParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:403:18: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  403 |     resScale = 3 - MLX90621_GetCurResolution();
+      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:404:33: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  404 |     alphaCom = (eeData[225]<<8) + eeData[224];
+      |                ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:407:25: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  407 |     alphaCom = alphaCom / alphaScale;
+      |                ~~~~~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:412:21: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  412 |         temp = temp / deltaScale;
+      |                ~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:417:34: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  417 |     alphaTemp = (eeData[215]<<8) + eeData[214];
+      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:418:27: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  418 |     alphaTemp = alphaTemp / alphaScale;
+      |                 ~~~~~~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractOffsetParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:436:26: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  436 |     bScale = eeData[217] & 0x0F;
+      |              ~~~~~~~~~~~~^~~~~~
+../Core/Src/MLX90621_API.cpp:437:18: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  437 |     resScale = 3 - MLX90621_GetCurResolution();
+      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:438:17: warning: conversion from '__gnu_cxx::__promote_2<int, double, double, double>::__type' {aka 'double'} to 'float' may change value [-Wfloat-conversion]
+  438 |     bScale = pow(2, (double)(bScale+resScale));
+      |              ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:440:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  440 |     data = (eeData[209]<<8) + eeData[208];
+      |            ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:457:30: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  457 |     aTemp = (eeData[212]<<8) + eeData[211];
+      |             ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: At global scope:
+../Core/Src/MLX90621_API.cpp:475:5: error: ambiguating new declaration of 'int MLX90621_AverageTo(const float*, uint8_t*)'
+  475 | int MLX90621_AverageTo(const float *toData, uint8_t *result)
+      |     ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/MLX90621_API.cpp:18:
+../Core/Inc/MLX90621_API.h:54:10: note: old declaration 'void MLX90621_AverageTo(const float*, uint8_t*)'
+   54 |     void MLX90621_AverageTo(const float *toData, uint8_t *result);
+      |          ^~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_AverageTo(const float*, uint8_t*)':
+../Core/Src/MLX90621_API.cpp:487:10: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  487 |   if(avg > 255 || avg < 0)
+      |      ~~~~^~~~~
+../Core/Src/MLX90621_API.cpp:487:23: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  487 |   if(avg > 255 || avg < 0)
+      |                   ~~~~^~~
+../Core/Src/MLX90621_API.cpp:498:1: warning: control reaches end of non-void function [-Wreturn-type]
+  498 | }
+      | ^
+make: *** [Core/Src/subdir.mk:53: Core/Src/MLX90621_API.o] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
-18:32:18 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+12:50:53 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
 make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_API.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_API.d" -MT"Core/Src/MLX90621_API.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_API.o"
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
                  from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
@@ -94,172 +104,115 @@ In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
 ../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
   209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
 ../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:120:51: error: cannot convert 'paramsMLX90621' to 'paramsMLX90621*'
-  120 |   status = MLX90621_ExtractParameters(eeMLX90621, mlx90621);
-      |                                                   ^~~~~~~~
-      |                                                   |
-      |                                                   paramsMLX90621
-In file included from ../Core/Src/main.cpp:24:
-../Core/Inc/MLX90621_API.h:45:69: note:   initializing argument 2 of 'int MLX90621_ExtractParameters(uint8_t*, paramsMLX90621*)'
-   45 |     int MLX90621_ExtractParameters(uint8_t *eeData, paramsMLX90621 *mlx90621);
-      |                                                     ~~~~~~~~~~~~~~~~^~~~~~~~
-../Core/Src/main.cpp:122:34: error: cannot convert 'int*' to 'uint16_t*' {aka 'short unsigned int*'}
-  122 |   status = MLX90621_GetFrameData(mlx90621Frame);
-      |                                  ^~~~~~~~~~~~~
-      |                                  |
-      |                                  int*
-In file included from ../Core/Src/main.cpp:24:
-../Core/Inc/MLX90621_API.h:41:41: note:   initializing argument 1 of 'int MLX90621_GetFrameData(uint16_t*)'
-   41 |     int MLX90621_GetFrameData(uint16_t *frameData);
-      |                               ~~~~~~~~~~^~~~~~~~~
-../Core/Src/main.cpp:124:23: error: cannot convert 'int*' to 'uint16_t*' {aka 'short unsigned int*'}
-  124 |   Ta = MLX90621_GetTa(mlx90621Frame, &mlx90621);
-      |                       ^~~~~~~~~~~~~
-      |                       |
-      |                       int*
-In file included from ../Core/Src/main.cpp:24:
-../Core/Inc/MLX90621_API.h:46:36: note:   initializing argument 1 of 'float MLX90621_GetTa(uint16_t*, const paramsMLX90621*)'
-   46 |     float MLX90621_GetTa(uint16_t *frameData, const paramsMLX90621 *params);
-      |                          ~~~~~~~~~~^~~~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  145 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  146 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-make: *** [Core/Src/subdir.mk:55: Core/Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-18:34:07 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:120:39: error: cannot convert 'uint8_t (*)[256]' {aka 'unsigned char (*)[256]'} to 'uint8_t*' {aka 'unsigned char*'}
-  120 |   status = MLX90621_ExtractParameters(&eeMLX90621, &mlx90621);
-      |                                       ^~~~~~~~~~~
-      |                                       |
-      |                                       uint8_t (*)[256] {aka unsigned char (*)[256]}
-In file included from ../Core/Src/main.cpp:24:
-../Core/Inc/MLX90621_API.h:45:45: note:   initializing argument 1 of 'int MLX90621_ExtractParameters(uint8_t*, paramsMLX90621*)'
-   45 |     int MLX90621_ExtractParameters(uint8_t *eeData, paramsMLX90621 *mlx90621);
-      |                                    ~~~~~~~~~^~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  145 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  146 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-make: *** [Core/Src/subdir.mk:55: Core/Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-18:34:29 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
+../Core/Src/main.cpp:101:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
+  101 |   float Ta;
       |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
+../Core/Src/main.cpp:116:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  116 |   int status;
+      |       ^~~~~~
 ../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  145 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
+  152 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
       |                                            ^
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  146 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
+  153 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
       |                                            ^
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_Configure(uint8_t*)':
+../Core/Src/MLX90621_API.cpp:57:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+   57 |     value = 256*eeData[246] + eeData[245];
+      |             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_SetResolution(uint8_t)':
+../Core/Src/MLX90621_API.cpp:113:53: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  113 |         error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
+      |                                                     ^~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_SetRefreshRate(uint8_t)':
+../Core/Src/MLX90621_API.cpp:152:53: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  152 |         error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
+      |                                                     ^~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractPTATParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:321:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  321 |     data = (eeData[219]<<8) + eeData[218];
+      |            ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:324:28: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  324 |     kt1 = (eeData[221]<<8) + eeData[220];
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:332:28: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  332 |     kt2 = (eeData[223]<<8) + eeData[222];
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractKsTaParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:361:31: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  361 |     KsTa = (eeData[231] << 8) + eeData[230];
+      |            ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractAlphaParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:403:18: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  403 |     resScale = 3 - MLX90621_GetCurResolution();
+      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:404:33: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  404 |     alphaCom = (eeData[225]<<8) + eeData[224];
+      |                ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:407:25: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  407 |     alphaCom = alphaCom / alphaScale;
+      |                ~~~~~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:412:21: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  412 |         temp = temp / deltaScale;
+      |                ~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:417:34: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  417 |     alphaTemp = (eeData[215]<<8) + eeData[214];
+      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:418:27: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  418 |     alphaTemp = alphaTemp / alphaScale;
+      |                 ~~~~~~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractOffsetParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:436:26: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  436 |     bScale = eeData[217] & 0x0F;
+      |              ~~~~~~~~~~~~^~~~~~
+../Core/Src/MLX90621_API.cpp:437:18: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  437 |     resScale = 3 - MLX90621_GetCurResolution();
+      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:438:17: warning: conversion from '__gnu_cxx::__promote_2<int, double, double, double>::__type' {aka 'double'} to 'float' may change value [-Wfloat-conversion]
+  438 |     bScale = pow(2, (double)(bScale+resScale));
+      |              ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:440:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  440 |     data = (eeData[209]<<8) + eeData[208];
+      |            ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:457:30: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  457 |     aTemp = (eeData[212]<<8) + eeData[211];
+      |             ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_AverageTo(const float*, uint8_t*)':
+../Core/Src/MLX90621_API.cpp:487:10: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  487 |   if(avg > 255 || avg < 0)
+      |      ~~~~^~~~~
+../Core/Src/MLX90621_API.cpp:487:23: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  487 |   if(avg > 255 || avg < 0)
+      |                   ~~~~^~~
+../Core/Src/MLX90621_API.cpp:498:1: warning: control reaches end of non-void function [-Wreturn-type]
+  498 | }
+      | ^
 arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: Tire_Temperature_Sensor.elf
  
 arm-none-eabi-size   Tire_Temperature_Sensor.elf 
 arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
    text	   data	    bss	    dec	    hex	filename
-  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
+  24516	    120	   2352	  26988	   696c	Tire_Temperature_Sensor.elf
 Finished building: default.size.stdout
  
 Finished building: Tire_Temperature_Sensor.list
  
-18:35:23 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+12:51:21 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
 make -j12 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
@@ -280,456 +233,12 @@ In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
 ../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
   209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
 ../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
+../Core/Src/main.cpp:101:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
+  101 |   float Ta;
       |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  145 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:145:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  146 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:146:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-18:35:38 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-18:39:26 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
+../Core/Src/main.cpp:116:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  116 |   int status;
       |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
-      |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  141 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:141:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  142 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-18:41:14 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
-      |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  142 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:142:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:143:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  143 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:143:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:143:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:143:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-22:50:06 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  23692	    120	   2088	  25900	   652c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-22:58:03 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:113:22: warning: conversion from 'double' to 'float' changes value from '9.4999999999999996e-1' to '9.49999988e-1f' [-Wfloat-conversion]
-  113 |   float emissivity = 0.95;
-      |                      ^~~~
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
-      |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  151 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  152 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-22:59:26 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:113:22: warning: conversion from 'double' to 'float' changes value from '9.4999999999999996e-1' to '9.49999988e-1f' [-Wfloat-conversion]
-  113 |   float emissivity = 0.95;
-      |                      ^~~~
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
-      |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  151 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  152 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-23:00:02 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:113:22: warning: conversion from 'double' to 'float' changes value from '9.4999999999999996e-1' to '9.49999988e-1f' [-Wfloat-conversion]
-  113 |   float emissivity = 0.95;
-      |                      ^~~~
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
-      |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  151 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:151:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  152 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: Tire_Temperature_Sensor.elf
- 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-Finished building: Tire_Temperature_Sensor.list
- 
-23:03:12 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-23:03:31 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-23:05:01 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-23:05:48 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-size   Tire_Temperature_Sensor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
-Finished building: default.size.stdout
- 
-23:08:26 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
-make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:113:22: warning: conversion from 'double' to 'float' changes value from '9.4999999999999996e-1' to '9.49999988e-1f' [-Wfloat-conversion]
-  113 |   float emissivity = 0.95;
-      |                      ^~~~
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:107:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
-  107 |   float Ta;
-      |         ^~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
 ../Core/Src/main.cpp: In function 'void SystemClock_Config()':
 ../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
   152 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -756,75 +265,111 @@ Finished building target: Tire_Temperature_Sensor.elf
 arm-none-eabi-size   Tire_Temperature_Sensor.elf 
 arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
    text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
+  24516	    120	   2352	  26988	   696c	Tire_Temperature_Sensor.elf
 Finished building: default.size.stdout
  
 Finished building: Tire_Temperature_Sensor.list
  
-23:12:19 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+12:51:33 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
 make -j12 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4p5xx.h:170,
-                 from ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:159,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:29,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:27,
-                 from ../Core/Inc/stm32l4xx_hal_conf.h:258,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.cpp:20:
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
-../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
-../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
-../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
-  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:113:22: warning: conversion from 'double' to 'float' changes value from '9.4999999999999996e-1' to '9.49999988e-1f' [-Wfloat-conversion]
-  113 |   float emissivity = 0.95;
-      |                      ^~~~
-../Core/Src/main.cpp:106:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  106 |   int status;
-      |       ^~~~~~
-../Core/Src/main.cpp:108:7: warning: variable 'resolution' set but not used [-Wunused-but-set-variable]
-  108 |   int resolution;
-      |       ^~~~~~~~~~
-../Core/Src/main.cpp:109:7: warning: variable 'refresh' set but not used [-Wunused-but-set-variable]
-  109 |   int refresh;
-      |       ^~~~~~~
-../Core/Src/main.cpp:114:9: warning: unused variable 'tr' [-Wunused-variable]
-  114 |   float tr = 28;
-      |         ^~
-../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  152 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:152:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  153 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-      |                                            ^
-../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:153:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24516	    120	   2352	  26988	   696c	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+12:53:09 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24516	    120	   2352	  26988	   696c	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+12:54:29 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/MLX90621_API.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/MLX90621_API.d" -MT"Core/Src/MLX90621_API.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MLX90621_API.o"
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_Configure(uint8_t*)':
+../Core/Src/MLX90621_API.cpp:57:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+   57 |     value = 256*eeData[246] + eeData[245];
+      |             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_SetResolution(uint8_t)':
+../Core/Src/MLX90621_API.cpp:113:53: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  113 |         error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
+      |                                                     ^~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_SetRefreshRate(uint8_t)':
+../Core/Src/MLX90621_API.cpp:152:53: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  152 |         error = MLX90621_I2CWrite(0x60, 0x03, 0x55, value);
+      |                                                     ^~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractPTATParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:321:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  321 |     data = (eeData[219]<<8) + eeData[218];
+      |            ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:324:28: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  324 |     kt1 = (eeData[221]<<8) + eeData[220];
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:332:28: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  332 |     kt2 = (eeData[223]<<8) + eeData[222];
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractKsTaParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:361:31: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  361 |     KsTa = (eeData[231] << 8) + eeData[230];
+      |            ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractAlphaParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:403:18: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  403 |     resScale = 3 - MLX90621_GetCurResolution();
+      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:404:33: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  404 |     alphaCom = (eeData[225]<<8) + eeData[224];
+      |                ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:407:25: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  407 |     alphaCom = alphaCom / alphaScale;
+      |                ~~~~~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:412:21: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  412 |         temp = temp / deltaScale;
+      |                ~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:417:34: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  417 |     alphaTemp = (eeData[215]<<8) + eeData[214];
+      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:418:27: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+  418 |     alphaTemp = alphaTemp / alphaScale;
+      |                 ~~~~~~~~~~^~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'void ExtractOffsetParameters(uint8_t*, paramsMLX90621*)':
+../Core/Src/MLX90621_API.cpp:436:26: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  436 |     bScale = eeData[217] & 0x0F;
+      |              ~~~~~~~~~~~~^~~~~~
+../Core/Src/MLX90621_API.cpp:437:18: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  437 |     resScale = 3 - MLX90621_GetCurResolution();
+      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:438:17: warning: conversion from '__gnu_cxx::__promote_2<int, double, double, double>::__type' {aka 'double'} to 'float' may change value [-Wfloat-conversion]
+  438 |     bScale = pow(2, (double)(bScale+resScale));
+      |              ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:440:29: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  440 |     data = (eeData[209]<<8) + eeData[208];
+      |            ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp:457:30: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  457 |     aTemp = (eeData[212]<<8) + eeData[211];
+      |             ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+../Core/Src/MLX90621_API.cpp: In function 'int MLX90621_AverageTo(const float*, uint8_t*)':
+../Core/Src/MLX90621_API.cpp:487:10: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  487 |   if(avg > 255 || avg < 0)
+      |      ~~~~^~~~~
+../Core/Src/MLX90621_API.cpp:487:23: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  487 |   if(avg > 255 || avg < 0)
+      |                   ~~~~^~~
 arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: Tire_Temperature_Sensor.elf
  
 arm-none-eabi-size   Tire_Temperature_Sensor.elf 
 arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
    text	   data	    bss	    dec	    hex	filename
-  24684	    120	   2344	  27148	   6a0c	Tire_Temperature_Sensor.elf
+  24524	    120	   2352	  26996	   6974	Tire_Temperature_Sensor.elf
 Finished building: default.size.stdout
  
 Finished building: Tire_Temperature_Sensor.list
+ 
+12:54:56 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+make -j12 all 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24524	    120	   2352	  26996	   6974	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
  

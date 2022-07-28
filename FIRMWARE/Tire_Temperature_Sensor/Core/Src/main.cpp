@@ -91,41 +91,37 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+
   MX_GPIO_Init();
   MX_CAN1_Init();
   MX_I2C2_Init();
+
   /* USER CODE BEGIN 2 */
+
+  float Ta;
+  static uint8_t eeMLX90621[256];
+  paramsMLX90621 mlx90621;
+
+
+  static uint16_t mlx90621Frame[66];
+  static float mlx90621To[64];
+  static uint8_t mlx90621ToAverage[8] = {0};
+
+  float emissivity = 0.98f;
+  float tr = 15.0f;
+
+
+  HAL_Delay(5);
+
+  int status;
+  status = MLX90621_DumpEE(eeMLX90621);
+  status = MLX90621_Configure(eeMLX90621);
+  status = MLX90621_ExtractParameters(eeMLX90621, &mlx90621);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-  HAL_Delay(500);
-
-  int status;
-  float Ta;
-  int resolution;
-  int refresh;
-  static uint8_t eeMLX90621[256];
-  static uint16_t mlx90621Frame[66];
-  paramsMLX90621 mlx90621;
-  float emissivity = 0.95;
-  float tr = 0;
-  static float mlx90621To[64];
-
-
-
-
-
-  status = MLX90621_DumpEE(eeMLX90621);
-  status = MLX90621_Configure(eeMLX90621);
-
-  resolution = MLX90621_GetCurResolution();
-  refresh = MLX90621_GetRefreshRate();
-
-  status = MLX90621_ExtractParameters(eeMLX90621, &mlx90621);
-
 
   while (1)
   {
@@ -136,6 +132,10 @@ int main(void)
 	  Ta = MLX90621_GetTa(mlx90621Frame, &mlx90621);
 
 	  MLX90621_CalculateTo(mlx90621Frame, &mlx90621, emissivity, tr, mlx90621To);
+
+	  status = MLX90621_AverageTo(mlx90621To, mlx90621ToAverage);
+
+
 
     /* USER CODE BEGIN 3 */
 

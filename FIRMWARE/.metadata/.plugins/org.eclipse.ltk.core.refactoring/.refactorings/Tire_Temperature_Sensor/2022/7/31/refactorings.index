@@ -3,3 +3,5 @@
 1658843977255	Rename resource 'stm32l4xx_hal_i2c.c'
 1658844007731	Rename resource 'stm32l4xx_hal_i2c.h'
 1658844037942	Rename resource 'stm32l4xx_hal_i2c2.h'
+1658993584835	Rename resource 'MLX90621_API.cpp'
+1658993596705	Rename resource 'MLX90621_API.c'

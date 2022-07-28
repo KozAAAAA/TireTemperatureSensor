@@ -189,17 +189,17 @@ void MLX90621_CalculateTo(uint16_t *frameData, const paramsMLX90621 *params, flo
     
     ta = MLX90621_GetTa(frameData, params);
     
-    ta4 = (ta + 273.15);
+    ta4 = (ta + 273.15f);
     ta4 = ta4 * ta4;
     ta4 = ta4 * ta4;
-    tr4 = (tr + 273.15);
+    tr4 = (tr + 273.15f);
     tr4 = tr4 * tr4;
     tr4 = tr4 * tr4;
     taTr = tr4 - (tr4-ta4)/emissivity;
     
 //------------------------- To calculation -------------------------------------    
         
-    irDataCP = frameData[65];  
+    irDataCP = frameData[65];
 
     if(irDataCP > 32767)
     {
@@ -227,7 +227,7 @@ void MLX90621_CalculateTo(uint16_t *frameData, const paramsMLX90621 *params, flo
         Sx = alphaCompensated * alphaCompensated * alphaCompensated * (irData + alphaCompensated * taTr);
         Sx = sqrt(sqrt(Sx)) * params->ksTo;            
         
-        To = sqrt(sqrt(irData/(alphaCompensated * (1 - params->ksTo * 273.15) + Sx) + taTr)) - 273.15;                     
+        To = sqrt(sqrt(irData/(alphaCompensated * (1 - params->ksTo * 273.15f) + Sx) + taTr)) - 273.15f;
                                     
         result[pixelNumber] = To;
     
@@ -471,3 +471,31 @@ void ExtractOffsetParameters(uint8_t *eeData, paramsMLX90621 *mlx90621)
     mlx90621->cpA = aTemp;
     mlx90621->cpB = bTemp;
 }
+
+int MLX90621_AverageTo(const float *toData, uint8_t *result)
+{
+	for(int resultIterator = 0; resultIterator < 8; resultIterator++)
+	{
+		float sum = 0;
+		for(int sumIterator = 0; sumIterator < 8; sumIterator++)
+		{
+			sum += toData[sumIterator + resultIterator*8];
+		}
+
+		uint8_t avg = (uint8_t)(sum/8);
+
+		if(avg > 255 || avg < 0)
+		{
+			return -1;
+		}
+		else
+		{
+			result[resultIterator] = avg;
+		}
+	}
+
+	return 0;
+}
+
+
+
