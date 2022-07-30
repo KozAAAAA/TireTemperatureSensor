@@ -22,6 +22,7 @@
 #include "gpio.h"
 #include "i2c.h"
 #include "MLX90621_API.h"
+#include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -125,7 +126,8 @@ int main(void)
 
   while (1)
   {
-    /* USER CODE END WHILE */
+
+	  HAL_Delay(10);
 
 	  status = MLX90621_GetFrameData(mlx90621Frame);
 
@@ -135,8 +137,29 @@ int main(void)
 
 	  status = MLX90621_AverageTo(mlx90621To, mlx90621ToAverage);
 
+	  PUTM_CAN::WheelTemp_main tts{
+		  .wheelTemp = {mlx90621ToAverage[0],
+				  	  	mlx90621ToAverage[1],
+						mlx90621ToAverage[2],
+						mlx90621ToAverage[3],
+						mlx90621ToAverage[4],
+						mlx90621ToAverage[5],
+						mlx90621ToAverage[6],
+						mlx90621ToAverage[7]}
+	  };
+
+	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::WheelTemp_main>(tts, PUTM_CAN::can_tx_header_WHEELTEMP_MAIN);
+
+	  status = tts_main_frame.send(hcan1);
 
 
+//
+//	  if (status != HAL_StatusTypeDef::HAL_OK)
+//	  {
+//		return 0;
+//	  }
+
+	/* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
 
   }
