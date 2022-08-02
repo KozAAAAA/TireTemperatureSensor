@@ -1,4 +1,4 @@
-19:33:10 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
+20:05:37 **** Incremental Build of configuration Debug for project Tire_Temperature_Sensor ****
 make -j12 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=c++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4P5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wextra -pedantic -Wswitch-default -Wswitch-enum -Wconversion -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
@@ -18,44 +18,53 @@ In file included from ../Drivers/CMSIS/Include/core_cm4.h:1955,
   207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
 ../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
   209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+In file included from ../Core/Inc/PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp:15,
+                 from ../Core/Src/main.cpp:29:
+../Core/Inc/PUTM_EV_CAN_LIBRARY/lib/message_abstraction.hpp: In constructor 'constexpr PUTM_CAN::Device_base::Device_base(uint32_t, uint8_t)':
+../Core/Inc/PUTM_EV_CAN_LIBRARY/lib/message_abstraction.hpp:62:13: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'const short unsigned int:12' may change value [-Wconversion]
+   62 |       : IDE{ide}, DLC{dlc}, new_data{false} {}
+      |             ^~~
+../Core/Inc/PUTM_EV_CAN_LIBRARY/lib/message_abstraction.hpp:62:23: warning: conversion from 'uint8_t' {aka 'unsigned char'} to 'const unsigned char:4' may change value [-Wconversion]
+   62 |       : IDE{ide}, DLC{dlc}, new_data{false} {}
+      |                       ^~~
 ../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:176:4: error: 'PUTM_CAN' has not been declared
-  176 |    PUTM_CAN::Apps_main apps{
-      |    ^~~~~~~~
-../Core/Src/main.cpp:179:26: error: 'PUTM_CAN' has not been declared
-  179 |    auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
-      |                          ^~~~~~~~
-../Core/Src/main.cpp:179:51: error: 'PUTM_CAN' has not been declared
-  179 |    auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
-      |                                                   ^~~~~~~~
-../Core/Src/main.cpp:179:72: error: 'apps' was not declared in this scope
-  179 |    auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
-      |                                                                        ^~~~
-../Core/Src/main.cpp:179:78: error: 'PUTM_CAN' has not been declared
-  179 |    auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
-      |                                                                              ^~~~~~~~
+../Core/Src/main.cpp:113:9: warning: variable 'Ta' set but not used [-Wunused-but-set-variable]
+  113 |   float Ta;
+      |         ^~
+../Core/Src/main.cpp:128:7: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  128 |   int status;
+      |       ^~~~~~
 ../Core/Src/main.cpp: In function 'void SystemClock_Config()':
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
-  222 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSEState' [-Wmissing-field-initializers]
+  221 |   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
       |                                            ^
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:223:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
-  223 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSEState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::LSIDiv' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIState' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSICalibrationValue' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::MSIClockRange' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::HSI48State' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:221:44: warning: missing initializer for member 'RCC_OscInitTypeDef::PLL' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::SYSCLKSource' [-Wmissing-field-initializers]
+  222 |   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
       |                                            ^
-../Core/Src/main.cpp:223:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:223:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
-../Core/Src/main.cpp:223:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
-make: *** [Core/Src/subdir.mk:53: Core/Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
+../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::AHBCLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB1CLKDivider' [-Wmissing-field-initializers]
+../Core/Src/main.cpp:222:44: warning: missing initializer for member 'RCC_ClkInitTypeDef::APB2CLKDivider' [-Wmissing-field-initializers]
+arm-none-eabi-g++ -o "Tire_Temperature_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mateusz/Desktop/Tire_Temperature_Sensor/FIRMWARE/Tire_Temperature_Sensor/STM32L4P5RETX_FLASH.ld" -Wl,-Map="Tire_Temperature_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Tire_Temperature_Sensor.elf
+ 
+arm-none-eabi-size   Tire_Temperature_Sensor.elf 
+arm-none-eabi-objdump -h -S  Tire_Temperature_Sensor.elf  > "Tire_Temperature_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  30136	    668	   2388	  33192	   81a8	Tire_Temperature_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Tire_Temperature_Sensor.list
+ 
 
-19:33:11 Build Failed. 6 errors, 18 warnings. (took 334ms)
+20:05:38 Build Finished. 0 errors, 22 warnings. (took 1s.2ms)
 

@@ -24,7 +24,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
 #include "MLX90621_API.h"
+#include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,15 +68,10 @@ uint8_t TxData[8];
 uint8_t RxData[8];
 uint8_t count = 0;
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-{
-	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
-}
-
-
-
-
-
+//void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+//{
+//	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
+//}
 
 
 
@@ -83,6 +81,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   * @brief  The application entry point.
   * @retval int
   */
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -165,7 +164,7 @@ int main(void)
 
 	  //TxData[0]++;
 
-	  HAL_CAN_AddTxMessage(&hcan1, &TxHeader, TxData, &TxMailbox);
+	  //HAL_CAN_AddTxMessage(&hcan1, &TxHeader, TxData, &TxMailbox);
 
 	  HAL_Delay(10);
 
@@ -173,30 +172,30 @@ int main(void)
 
 
 
-	  PUTM_CAN::Apps_main apps{
-	  };
-
-	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
-
-	  status = tts_main_frame.send(hcan1);
-
-
-
-
-//	  PUTM_CAN::WheelTemp_main tts{
-//		  .wheelTemp = {mlx90621ToAverage[0],
-//				  	  	mlx90621ToAverage[1],
-//						mlx90621ToAverage[2],
-//						mlx90621ToAverage[3],
-//						mlx90621ToAverage[4],
-//						mlx90621ToAverage[5],
-//						mlx90621ToAverage[6],
-//						mlx90621ToAverage[7]}
+//	  PUTM_CAN::Apps_main apps{
 //	  };
 //
-//	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::WheelTemp_main>(tts, PUTM_CAN::can_tx_header_WHEELTEMP_MAIN);
+//	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
 //
 //	  status = tts_main_frame.send(hcan1);
+
+
+
+
+	  PUTM_CAN::WheelTemp_main tts{
+		  .wheelTemp = {mlx90621ToAverage[0],
+				  	  	mlx90621ToAverage[1],
+						mlx90621ToAverage[2],
+						mlx90621ToAverage[3],
+						mlx90621ToAverage[4],
+						mlx90621ToAverage[5],
+						mlx90621ToAverage[6],
+						mlx90621ToAverage[7]}
+	  };
+
+	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::WheelTemp_main>(tts, PUTM_CAN::can_tx_header_WHEELTEMP_MAIN);
+
+	  status = tts_main_frame.send(hcan1);
 
 
 //
