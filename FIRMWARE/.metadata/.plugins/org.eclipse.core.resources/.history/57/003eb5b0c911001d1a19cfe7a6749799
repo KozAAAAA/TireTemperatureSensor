@@ -1,0 +1,6 @@
+
+#include "stm32l4xx_hal_i2c.h"
+
+HAL_StatusTypeDef Custom_HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
+										  uint8_t command, uint8_t startAddress, uint8_t addressStep, uint8_t nMemAddressRead,
+										  uint8_t *pData, uint16_t Size, uint32_t Timeout);

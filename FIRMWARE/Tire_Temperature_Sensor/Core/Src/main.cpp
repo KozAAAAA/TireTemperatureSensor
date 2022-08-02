@@ -19,14 +19,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "can.h"
-#include "gpio.h"
 #include "i2c.h"
-#include "MLX90621_API.h"
-#include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "MLX90621_API.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,6 +56,35 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+CAN_TxHeaderTypeDef TxHeader;
+CAN_RxHeaderTypeDef RxHeader;
+
+uint32_t TxMailbox;
+
+uint8_t TxData[8];
+uint8_t RxData[8];
+uint8_t count = 0;
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
+}
+
+
+
+
+float Ta;
+static uint8_t eeMLX90621[256];
+paramsMLX90621 mlx90621;
+
+
+static uint16_t mlx90621Frame[66];
+static float mlx90621To[64];
+static uint8_t mlx90621ToAverage[8] = {0};
+
+float emissivity = 0.98f;
+float tr = 15.0f;
+
 
 
 /* USER CODE END 0 */
@@ -66,9 +93,6 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
-
-
-
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -92,24 +116,10 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-
   MX_GPIO_Init();
   MX_CAN1_Init();
   MX_I2C2_Init();
-
   /* USER CODE BEGIN 2 */
-
-  float Ta;
-  static uint8_t eeMLX90621[256];
-  paramsMLX90621 mlx90621;
-
-
-  static uint16_t mlx90621Frame[66];
-  static float mlx90621To[64];
-  static uint8_t mlx90621ToAverage[8] = {0};
-
-  float emissivity = 0.98f;
-  float tr = 15.0f;
 
 
   HAL_Delay(5);
@@ -118,6 +128,29 @@ int main(void)
   status = MLX90621_DumpEE(eeMLX90621);
   status = MLX90621_Configure(eeMLX90621);
   status = MLX90621_ExtractParameters(eeMLX90621, &mlx90621);
+
+
+  HAL_CAN_Start(&hcan1);
+
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+
+  TxHeader.DLC = 1;
+  TxHeader.ExtId = 0;
+  TxHeader.IDE = CAN_ID_STD;
+  TxHeader.RTR = CAN_RTR_DATA;
+  TxHeader.StdId = 0x103;
+  TxHeader.TransmitGlobalTime = DISABLE;
+
+  TxData[0] = 0xf3;
+
+  HAL_CAN_AddTxMessage(&hcan1, &TxHeader, TxData, &TxMailbox);
+
+
+
+
+
+
+
 
   /* USER CODE END 2 */
 
@@ -137,20 +170,29 @@ int main(void)
 
 	  status = MLX90621_AverageTo(mlx90621To, mlx90621ToAverage);
 
-	  PUTM_CAN::WheelTemp_main tts{
-		  .wheelTemp = {mlx90621ToAverage[0],
-				  	  	mlx90621ToAverage[1],
-						mlx90621ToAverage[2],
-						mlx90621ToAverage[3],
-						mlx90621ToAverage[4],
-						mlx90621ToAverage[5],
-						mlx90621ToAverage[6],
-						mlx90621ToAverage[7]}
-	  };
 
-	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::WheelTemp_main>(tts, PUTM_CAN::can_tx_header_WHEELTEMP_MAIN);
 
-	  status = tts_main_frame.send(hcan1);
+
+
+
+
+
+
+
+//	  PUTM_CAN::WheelTemp_main tts{
+//		  .wheelTemp = {mlx90621ToAverage[0],
+//				  	  	mlx90621ToAverage[1],
+//						mlx90621ToAverage[2],
+//						mlx90621ToAverage[3],
+//						mlx90621ToAverage[4],
+//						mlx90621ToAverage[5],
+//						mlx90621ToAverage[6],
+//						mlx90621ToAverage[7]}
+//	  };
+//
+//	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::WheelTemp_main>(tts, PUTM_CAN::can_tx_header_WHEELTEMP_MAIN);
+//
+//	  status = tts_main_frame.send(hcan1);
 
 
 //
@@ -159,7 +201,8 @@ int main(void)
 //		return 0;
 //	  }
 
-	/* USER CODE END WHILE */
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
 
   }
@@ -252,5 +295,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-

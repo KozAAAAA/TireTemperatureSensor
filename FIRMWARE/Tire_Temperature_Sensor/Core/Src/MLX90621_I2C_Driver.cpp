@@ -14,8 +14,10 @@
  * limitations under the License.
  *
  */
-#include "i2c.h"
+
+
 #include "MLX90621_I2C_Driver.h"
+#include "i2c.h"
 
 
 void MLX90621_I2CInit()
@@ -109,6 +111,10 @@ int MLX90621_I2CWrite(uint8_t slaveAddr, uint8_t command, uint8_t checkValue, ui
     
     return 0;
 }
+
+
+
+
 
 
 

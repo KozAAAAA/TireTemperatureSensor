@@ -482,7 +482,7 @@ int MLX90621_AverageTo(const float *toData, uint8_t *result)
 			sum += toData[sumIterator + resultIterator*8];
 		}
 
-		uint8_t avg = (uint8_t)(sum/8);
+		int16_t avg = (uint8_t)(sum/8);
 
 		if(avg > 255 || avg < 0)
 		{
@@ -490,7 +490,7 @@ int MLX90621_AverageTo(const float *toData, uint8_t *result)
 		}
 		else
 		{
-			result[resultIterator] = avg;
+			result[resultIterator] = (uint8_t)avg;
 		}
 	}
 

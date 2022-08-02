@@ -14,8 +14,10 @@
  * limitations under the License.
  *
  */
-#ifndef _MLX90621_I2C_Driver_H_
-#define _MLX90621_I2C_Driver_H_
+#ifndef _MLX621_DRIVER_H_
+#define _MLX621_DRIVER_H_
+
+
 
 #include <stdint.h>
 
