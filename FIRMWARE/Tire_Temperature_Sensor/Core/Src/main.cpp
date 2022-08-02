@@ -73,17 +73,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
 
 
-float Ta;
-static uint8_t eeMLX90621[256];
-paramsMLX90621 mlx90621;
 
-
-static uint16_t mlx90621Frame[66];
-static float mlx90621To[64];
-static uint8_t mlx90621ToAverage[8] = {0};
-
-float emissivity = 0.98f;
-float tr = 15.0f;
 
 
 
@@ -121,6 +111,18 @@ int main(void)
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
+  float Ta;
+  static uint8_t eeMLX90621[256];
+  paramsMLX90621 mlx90621;
+
+
+  static uint16_t mlx90621Frame[66];
+  static float mlx90621To[64];
+  static uint8_t mlx90621ToAverage[8] = {0};
+
+  float emissivity = 0.98f;
+  float tr = 15.0f;
+
 
   HAL_Delay(5);
 
@@ -143,13 +145,6 @@ int main(void)
 
   TxData[0] = 0xf3;
 
-  HAL_CAN_AddTxMessage(&hcan1, &TxHeader, TxData, &TxMailbox);
-
-
-
-
-
-
 
 
   /* USER CODE END 2 */
@@ -160,8 +155,6 @@ int main(void)
   while (1)
   {
 
-	  HAL_Delay(10);
-
 	  status = MLX90621_GetFrameData(mlx90621Frame);
 
 	  Ta = MLX90621_GetTa(mlx90621Frame, &mlx90621);
@@ -170,11 +163,22 @@ int main(void)
 
 	  status = MLX90621_AverageTo(mlx90621To, mlx90621ToAverage);
 
+	  //TxData[0]++;
+
+	  HAL_CAN_AddTxMessage(&hcan1, &TxHeader, TxData, &TxMailbox);
+
+	  HAL_Delay(10);
 
 
 
 
 
+	  PUTM_CAN::Apps_main apps{
+	  };
+
+	  auto tts_main_frame = PUTM_CAN::Can_tx_message<PUTM_CAN::Apps_main>(apps, PUTM_CAN::can_tx_header_APPS_MAIN);
+
+	  status = tts_main_frame.send(hcan1);
 
 
 
